@@ -1,0 +1,8 @@
+<svg viewBox="0 0 24 12">
+    <path d="M12 9.67a.68.68 0 01-.48-.19l-6-6a.68.68 0 011-1L12 8l5.52-5.52a.68.68 0 011 1l-6 6a.68.68 0 01-.52.19z" fill="currentColor"/>
+</svg>
+
+<!-- 
+    Convert TailwindCSS to CSS
+    className="xs:justify-end inline-flex dark:text-neutral-100 text-neutral-800 transition-transform duration-1000 transform w-4"
+-->
