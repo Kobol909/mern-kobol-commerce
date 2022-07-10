@@ -33,6 +33,7 @@
     "format": "prettier --write \"{,!(node_modules)/**/}*.js\"",
     "eject": "react-scripts eject"
   },
+  "homepage": "../",
   "browserslist": {
     "production": [
       ">0.2%",
