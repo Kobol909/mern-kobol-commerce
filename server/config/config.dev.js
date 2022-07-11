@@ -13,6 +13,10 @@ require('dotenv').config();
  * Configuration for development environment
  */
 let devConfig = {
+  app: {
+    name: 'kobol-sounds', // Application name
+    title: 'Kobol-sounds' // Application title
+  },
   auth: {
     googleSignIn: true,
     resetPassword: false, // If true, be able to reset password via email
