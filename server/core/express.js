@@ -11,7 +11,8 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 const cors = require('cors');
 const morgan = require('morgan');
 const createError = require('http-errors');
-const session = require('express-session');
+const session =
+  process.NODE_ENV === 'development' ? require('express-session') : require('cookie-session');
 const routes = require('../routes');
 const passport = require('./passport/passportStrategies');
 const config = require('../config/index');
