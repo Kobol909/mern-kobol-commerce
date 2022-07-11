@@ -31,6 +31,9 @@ switch (config.https.enabled) {
   case false:
     server = http.createServer(app);
     break;
+  case NODE_ENV !== 'development':
+    server = http.createServer(app);
+    break;
   default:
     throw new Error('Invalid value for config.https.enabled');
 }
