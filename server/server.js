@@ -18,26 +18,28 @@ const app = require('./core/express');
 // TODO: Add the https configuration in the config file
 let server;
 
-switch (config.https.enabled) {
-  case true:
-    server = https.createServer(
-      {
-        key: fs.readFileSync(path.join(__dirname, '../key.pem')),
-        cert: fs.readFileSync(path.join(__dirname, '../cert.pem'))
-      },
-      app
-    );
-    break;
-  case false:
-    server = http.createServer(app);
-    break;
-  case NODE_ENV !== 'development': // For heroku, we need to use the http protocol
-    // See: https://stackoverflow.com/questions/25148507/https-ssl-on-heroku-node-express
-    server = http.createServer(app);
-    break;
-  default:
-    throw new Error('Invalid value for config.https.enabled');
-}
+// switch (config.https.enabled) {
+//   case true:
+//     server = https.createServer(
+//       {
+//         key: fs.readFileSync(path.join(__dirname, '../key.pem')),
+//         cert: fs.readFileSync(path.join(__dirname, '../cert.pem'))
+//       },
+//       app
+//     );
+//     break;
+//   case false:
+//     server = http.createServer(app);
+//     break;
+//   case NODE_ENV !== 'development': // For heroku, we need to use the http protocol
+//     // See: https://stackoverflow.com/questions/25148507/https-ssl-on-heroku-node-express
+//     server = http.createServer(app);
+//     break;
+//   default:
+//     throw new Error('Invalid value for config.https.enabled');
+// }
+
+server = http.createServer(app);
 
 if (config.port == null || config.port === '') {
   port = 8861;

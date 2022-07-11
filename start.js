@@ -15,9 +15,8 @@
 
 const concurrently = require('concurrently');
 const chalk = require('chalk');
-const figlet = require('figlet');
+// const figlet = require('figlet');
 const _ = require('lodash');
-require('dotenv').config();
 
 const getUppercaseArgs = () => {
   validArgs = ['test', 'server', 'client', 'server:client', 'install-children', 'build'];
@@ -38,12 +37,12 @@ const getUppercaseArgs = () => {
 };
 
 const run = () => {
-  if (NODE_ENV === 'development') {
-    const logo = figlet.textSync('Kobol', {
-      font: '3D-ASCII'
-    });
-    console.log(chalk.cyan(logo));
-  }
+  // if (NODE_ENV === 'development') {
+  //   const logo = figlet.textSync('Kobol', {
+  //     font: '3D-ASCII'
+  //   });
+  //   console.log(chalk.cyan(logo));
+  // }
 
   const upperCaseArgs = getUppercaseArgs();
   let availableCommands = [
