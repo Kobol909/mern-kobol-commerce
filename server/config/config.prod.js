@@ -13,8 +13,8 @@ const constants = require('../core/constants');
  */
 let prodConfig = {
   app: {
-    name: 'kobol-sounds', // TODO Lowercase, URL compatible name
-    title: 'kobol-sounds' // TODO Human friendly name
+    name: 'mern-kobol-commerce', // TODO Lowercase, URL compatible name
+    title: 'mern-kobol-commerce' // TODO Human friendly name
   },
   auth: {
     googleSignIn: true,

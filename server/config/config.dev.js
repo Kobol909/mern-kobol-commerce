@@ -14,8 +14,8 @@ require('dotenv').config();
  */
 let devConfig = {
   app: {
-    name: 'kobol-sounds', // Application name
-    title: 'Kobol-sounds' // Application title
+    name: 'mern-kobol-commerce', // Application name
+    title: 'mern-kobol-commerce' // Application title
   },
   auth: {
     googleSignIn: true,
