@@ -1,1 +1,1 @@
-web: node start server:client
+web: node build
