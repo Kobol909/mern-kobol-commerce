@@ -37,10 +37,12 @@ const getUppercaseArgs = () => {
 };
 
 const run = () => {
-  const logo = figlet.textSync('Kobol', {
-    font: '3D-ASCII'
-  });
-  console.log(chalk.cyan(logo));
+  if (NODE_ENV === 'development') {
+    const logo = figlet.textSync('Kobol', {
+      font: '3D-ASCII'
+    });
+    console.log(chalk.cyan(logo));
+  }
 
   const upperCaseArgs = getUppercaseArgs();
   let availableCommands = [

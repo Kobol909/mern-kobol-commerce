@@ -31,7 +31,8 @@ switch (config.https.enabled) {
   case false:
     server = http.createServer(app);
     break;
-  case NODE_ENV !== 'development':
+  case NODE_ENV !== 'development': // For heroku, we need to use the http protocol
+    // See: https://stackoverflow.com/questions/25148507/https-ssl-on-heroku-node-express
     server = http.createServer(app);
     break;
   default:
