@@ -67,7 +67,7 @@ const displayAllEndpoints = () => {
       console.log(colorizerEndPoints(`[+] ${method.padEnd(6)}`), colorizerEndPoints(path));
     });
   });
-  console.log(chalk.cyanBright(`[*] Total: ${total} endpoints`));
+  console.log(chalk.cyanBright(`[*] Total: ${total} endpoints\n`));
 };
 
 const displayConfigurationStatus = () => {

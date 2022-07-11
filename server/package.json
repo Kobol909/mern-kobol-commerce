@@ -4,8 +4,8 @@
   "description": "server",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "prod": "node server.js",
+    "start": "nodemon index.js",
+    "prod": "node index.js",
     "test": "cross-env NODE_ENV=test mocha --timeout 20000 --recursive --exit",
     "test:watch": "cross-env NODE_ENV=test nodemon --exec 'mocha --recursive'"
   },
