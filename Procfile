@@ -1,2 +1,1 @@
-web: yarn build
-local: yarn start
+web: node start --prefix client && node start --prefix server
