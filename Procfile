@@ -1,1 +1,1 @@
-web: node heroku-start
+web: node heroku:start
