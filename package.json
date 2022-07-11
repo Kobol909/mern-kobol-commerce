@@ -17,9 +17,7 @@
   "devDependencies": {
     "husky": "^8.0.1",
     "lint-staged": "^13.0.2",
-    "ngrok": "^4.3.1",
-    "prettier": "^2.7.1",
-    "tree-kill": "^1.2.2"
+    "prettier": "^2.7.1"
   },
   "dependencies": {
     "chalk": "^4.1.2",
@@ -27,7 +25,9 @@
     "dotenv": "^16.0.1",
     "figlet": "^1.5.2",
     "lodash": "^4.17.21",
-    "react-icons": "^4.4.0"
+    "ngrok": "^4.3.1",
+    "react-icons": "^4.4.0",
+    "tree-kill": "^1.2.2"
   },
   "engines": {
     "node": ">=16.0.0"
