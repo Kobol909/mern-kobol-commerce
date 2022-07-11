@@ -1,6 +1,5 @@
 const admin = require('firebase-admin');
 
-// const serviceAccount = require('../.firebase/serviceAccountKey.json');
 require('dotenv').config();
 const serviceAccount = JSON.parse(process.env.GOOGLE_FIREBASE_CREDENTIALS);
 
