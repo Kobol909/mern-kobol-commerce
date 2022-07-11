@@ -1,1 +1,1 @@
-web: node heroku:start
+web: node start --prefix client && node start --prefix server

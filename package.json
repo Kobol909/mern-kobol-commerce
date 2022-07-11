@@ -10,8 +10,7 @@
     "server": "node start server",
     "server:client": "node start server:client",
     "build": "node start build",
-    "test": "node start test",
-    "heroku:start": "node start --prefix client && node start --prefix server"
+    "test": "node start test"
   },
   "homepage": "./client",
   "author": "Fabien Campana",
