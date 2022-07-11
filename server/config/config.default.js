@@ -114,7 +114,7 @@ let defaultConfig = {
     options: {
       secret: 'This will be overridden by environment variable SESSION_SECRET ',
       resave: false,
-      saveUninitialized: false,
+      saveUninitialized: true,
       cookie: {} // See https://www.npmjs.com/package/express-session
     },
     maxAge: 60 * 60 * 24 * 7 // in seconds

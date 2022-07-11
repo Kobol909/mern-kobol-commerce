@@ -75,10 +75,10 @@ app.use(routes);
 app.use('/public', express.static(path.resolve(__dirname, '../public')));
 
 // Redirect all requests to the index.html file
-// app.use(express.static(path.join(__dirname, 'build')));
-// app.get('/*', function (req, res) {
-//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
-// });
+app.use(express.static(path.join(__dirname, 'build')));
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 // catch 404 errors and forward to error handler by default
 app.use((req, res, next) => {
