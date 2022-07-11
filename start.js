@@ -17,6 +17,7 @@ const concurrently = require('concurrently');
 const chalk = require('chalk');
 const figlet = require('figlet');
 const _ = require('lodash');
+require('dotenv').config();
 
 const getUppercaseArgs = () => {
   validArgs = ['test', 'server', 'client', 'server:client', 'install-children', 'build'];
