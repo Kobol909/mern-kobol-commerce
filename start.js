@@ -11,7 +11,7 @@
  * * node start server:client
  * * node start install-children
  * * node build client
- * * node start client && node prod server
+ * * node build client && node prod server
  */
 
 const concurrently = require('concurrently');
@@ -28,7 +28,7 @@ const getUppercaseArgs = () => {
     'install-children',
     'build',
     'prod-server',
-    'prod-server:client'
+    'prod-server:build'
   ];
 
   if (process.argv.length === 2) {
@@ -86,7 +86,7 @@ const run = () => {
     },
     {
       command: 'node start-helper prod',
-      name: 'PROD-SERVER:CLIENT',
+      name: 'PROD-SERVER:BUILD',
       prefixColor: 'green'
     }
   ];

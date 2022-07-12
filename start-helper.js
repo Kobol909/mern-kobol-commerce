@@ -61,9 +61,9 @@ const options = [
     message: 'Building React: '
   },
   {
-    name: 'prod-server:client',
+    name: 'prod-server:build',
     command: 'yarn',
-    arguments: ['prod', 'start'],
+    arguments: ['prod', 'build'],
     workingDirs: ['server', 'client'],
     message: ['Starting production server...', 'Starting production client...']
   },
