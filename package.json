@@ -9,6 +9,8 @@
     "client": "node start client",
     "server": "node start server",
     "server:client": "node start server:client",
+    "prod-server": "node start prod",
+    "prod-server:client": "node start prod-server:client",
     "build": "node start build",
     "test": "node start test"
   },

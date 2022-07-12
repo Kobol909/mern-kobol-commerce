@@ -1,7 +1,7 @@
 /**
  * This script provide a cross-platform way for starting yarn process in child directory.
  *
- * Usage: node start-helper.js [server|client|test]
+ * Usage: node start-helper.js [test|server|client|server:client|build|install-children|prod]
  *
  */
 
@@ -21,16 +21,16 @@ const options = [
   {
     name: 'server',
     command: 'yarn',
-    arguments: ['start'],
+    arguments: ['start', 'prod'],
     workingDirs: 'server',
     message: 'API server is starting...'
   },
   {
     name: 'client',
     command: 'yarn',
-    arguments: ['start', 'build'],
+    arguments: ['start', 'build', 'prod'],
     workingDirs: 'client',
-    message: ['Web client is starting...', 'Web client is building...']
+    message: ['Web client is starting...', 'Web client is building...', 'Web client is running...']
   },
   {
     name: 'mobile',
@@ -59,6 +59,20 @@ const options = [
     arguments: ['build'],
     workingDirs: ['client'],
     message: 'Building React: '
+  },
+  {
+    name: 'prod-server:client',
+    command: 'yarn',
+    arguments: ['prod', 'start'],
+    workingDirs: ['server', 'client'],
+    message: ['Starting production server...', 'Starting production client...']
+  },
+  {
+    name: 'prod-server',
+    command: 'yarn',
+    arguments: ['prod'],
+    workingDirs: ['server'],
+    message: 'Starting production server...'
   }
 ];
 
@@ -70,6 +84,9 @@ const start = () => {
   let command = _.find(options, (opt) => {
     if (opt.name === process.argv[2]) {
       return opt;
+    }
+    if (opt.name === 'prod-server:client') {
+      return opt[6];
     }
   });
   if (!command) {

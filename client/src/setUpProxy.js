@@ -2,17 +2,17 @@
  * Proxy middleware for Express
  *
  */
-const { createProxyMiddleware } = require('http-proxy-middleware');
+// const { createProxyMiddleware } = require('http-proxy-middleware');
 
-require('dotenv').config();
+// require('dotenv').config();
 
-module.exports = function (app) {
-  app.use(
-    '/api',
-    createProxyMiddleware({
-      target: 'https://localhost:8861',
-      secure: false,
-      changeOrigin: true
-    })
-  );
-};
+// module.exports = function (app) {
+//   app.use(
+//     '/api',
+//     createProxyMiddleware({
+//       target: 'https://localhost:8861',
+//       secure: false,
+//       changeOrigin: true
+//     })
+//   );
+// };
