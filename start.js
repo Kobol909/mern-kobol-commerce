@@ -16,7 +16,7 @@
 
 const concurrently = require('concurrently');
 const chalk = require('chalk');
-const figlet = require('figlet');
+// const figlet = require('figlet');
 const _ = require('lodash');
 
 const getUppercaseArgs = () => {
@@ -47,10 +47,10 @@ const getUppercaseArgs = () => {
 };
 
 const run = () => {
-  const logo = figlet.textSync('Kobol', {
-    font: '3D-ASCII'
-  });
-  console.log(chalk.cyan(logo));
+  // const logo = figlet.textSync('Kobol', {
+  //   font: '3D-ASCII'
+  // });
+  // console.log(chalk.cyan(logo));
 
   const upperCaseArgs = getUppercaseArgs();
   let availableCommands = [
