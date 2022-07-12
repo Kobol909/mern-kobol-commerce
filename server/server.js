@@ -42,11 +42,6 @@ if (config.port == null || config.port === '') {
   port = 8861;
 }
 
-// server.on('clientError', (err, socket) => {
-//   console.error(err);
-//   socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
-// });
-
 server.listen(config.server.port);
 // End of https configuration
 
