@@ -95,4 +95,9 @@ router.post('/v1/prices', async (req, res) => {
   res.send(price);
 });
 
+// Catch all other routes and return to home page
+router.get('*', (req, res) => {
+  res.redirect('/');
+});
+
 module.exports = router;
