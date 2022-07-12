@@ -47,6 +47,7 @@ const getUppercaseArgs = () => {
 };
 
 const run = () => {
+  // TODO: Make this print conditional to the NODE_ENV
   // const logo = figlet.textSync('Kobol', {
   //   font: '3D-ASCII'
   // });
