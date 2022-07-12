@@ -43,7 +43,6 @@ if (config.port == null || config.port === '') {
 }
 
 server.listen(config.server.port);
-// End of https configuration
 
 const displayAllEndpoints = () => {
   const endpoints = listEndpoints(app);
