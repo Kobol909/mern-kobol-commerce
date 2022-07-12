@@ -1,7 +1,7 @@
 /**
  * This script run yarn processes concurrently
  *
- * Usage: [test|server|client|server:client|build|install-children|prod]
+ * Usage: [test|server|client|server:client|build|serve|install-children|prod]
  *
  * Example:
  * * node install-children
@@ -11,6 +11,7 @@
  * * node start server:client
  * * node start install-children
  * * node build client
+ * * node serve client
  * * node build client && node prod server
  */
 
@@ -27,13 +28,14 @@ const getUppercaseArgs = () => {
     'server:client',
     'install-children',
     'build',
+    'serve',
     'prod-server',
-    'prod-server:build'
+    'prod-server:serve'
   ];
 
   if (process.argv.length === 2) {
     process.argv.push('server:client');
-  } else if (process.argv[2] === 'build') {
+  } else if (process.argv[2] === 'serve') {
     process.argv.push('client');
   } else if (process.argv.length > 3 && process.argv[5] !== 'prod-server:client') {
     throw new Error(`[-] Invalid command. Please specify only one argument`);
@@ -81,13 +83,18 @@ const run = () => {
       prefixColor: 'green'
     },
     {
+      command: 'node start-helper serve',
+      name: 'SERVE',
+      prefixColor: 'green'
+    },
+    {
       command: 'node start-helper prod-server',
       name: 'PROD-SERVER',
       prefixColor: 'green'
     },
     {
       command: 'node start-helper prod',
-      name: 'PROD-SERVER:BUILD',
+      name: 'PROD-SERVER:SERVE',
       prefixColor: 'green'
     }
   ];

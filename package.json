@@ -9,9 +9,10 @@
     "client": "node start client",
     "server": "node start server",
     "server:client": "node start server:client",
-    "prod-server": "node start prod",
-    "prod-server:build": "node start prod-server:build",
     "build": "node start build",
+    "serve": "node start serve",
+    "prod-server": "node start prod",
+    "prod-server:serve": "node start prod-server:serve",
     "test": "node start test"
   },
   "author": "Fabien Campana",

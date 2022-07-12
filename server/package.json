@@ -39,6 +39,7 @@
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "sendgrid-template-helper": "^1.0.6",
+    "serve": "^13.0.4",
     "stripe": "^9.6.0",
     "supertest": "^6.2.2",
     "uuid": "^8.3.2"

@@ -1,7 +1,7 @@
 /**
  * This script provide a cross-platform way for starting yarn process in child directory.
  *
- * Usage: node start-helper.js [test|server|client|server:client|build|install-children|prod]
+ * Usage: node start-helper.js [test|server|client|server:client|build|serve|install-children|prod]
  *
  */
 
@@ -19,56 +19,63 @@ dotenv.config();
 
 const options = [
   {
-    name: 'server',
+    name: 'server', // Opt [0]
     command: 'yarn',
     arguments: ['start', 'prod'],
     workingDirs: 'server',
     message: 'API server is starting...'
   },
   {
-    name: 'client',
+    name: 'client', // Opt [1]
     command: 'yarn',
     arguments: ['start', 'build', 'prod'],
     workingDirs: 'client',
     message: ['Web client is starting...', 'Web client is building...', 'Web client is running...']
   },
   {
-    name: 'mobile',
+    name: 'mobile', // Opt [2]
     command: 'yarn',
     arguments: ['start'],
     workingDirs: 'mobile',
     message: 'Starting mobile...'
   },
   {
-    name: 'test',
+    name: 'test', // Opt [3]
     command: 'yarn',
     arguments: ['run', 'test'],
     workingDirs: ['server'],
     message: 'Running tests for: '
   },
   {
-    name: 'install-children',
+    name: 'install-children', // Opt [4]
     command: 'yarn',
     arguments: ['install'],
     workingDirs: ['server', 'client', 'mobile'],
     message: 'Installing dependencies for: '
   },
   {
-    name: 'build',
+    name: 'build', // Opt [5]
     command: 'yarn',
     arguments: ['build'],
     workingDirs: ['client'],
     message: 'Building React: '
   },
   {
-    name: 'prod-server:build',
+    name: 'serve', // Opt [6]
     command: 'yarn',
-    arguments: ['prod', 'build'],
+    arguments: ['serve'],
+    workingDirs: ['client'],
+    message: 'Serving React: '
+  },
+  {
+    name: 'prod-server:serve', // Opt [7]
+    command: 'yarn',
+    arguments: ['prod', 'serve'],
     workingDirs: ['server', 'client'],
     message: ['Starting production server...', 'Starting production client...']
   },
   {
-    name: 'prod-server',
+    name: 'prod-server', // Opt [8]
     command: 'yarn',
     arguments: ['prod'],
     workingDirs: ['server'],
@@ -85,8 +92,8 @@ const start = () => {
     if (opt.name === process.argv[2]) {
       return opt;
     }
-    if (opt.name === 'prod-server:client') {
-      return opt[6];
+    if (opt.name === 'prod-server:serve') {
+      return opt[7];
     }
   });
   if (!command) {
