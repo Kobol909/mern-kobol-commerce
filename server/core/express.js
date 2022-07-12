@@ -73,7 +73,9 @@ app.use(passport.session());
 app.use(routes);
 
 // Add public folder to serve static files
-app.use('/public', express.static(path.resolve(__dirname, './public')));
+process.env.NODE_ENV === 'development'
+  ? app.use('/public', express.static(path.resolve(__dirname, './public')))
+  : app.use('/public', express.static(path.resolve(__dirname, '../../client/build')));
 
 // Redirect all requests to the index.html file
 // app.use(express.static(path.join(__dirname, 'build')));

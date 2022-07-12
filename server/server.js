@@ -1,8 +1,7 @@
 /**
  * This is the entry point for the server.
  */
-const http = require('http');
-const https = require('https');
+const http = process.NODE_ENV === 'development' ? require('https') : require('http');
 const chalk = require('chalk');
 const fs = require('fs');
 const path = require('path');
@@ -18,37 +17,35 @@ const app = require('./core/express');
 // TODO: Add the https configuration in the config file
 let server;
 
-// switch (config.https.enabled) {
-//   case true:
-//     server = https.createServer(
-//       {
-//         key: fs.readFileSync(path.join(__dirname, '../key.pem')),
-//         cert: fs.readFileSync(path.join(__dirname, '../cert.pem'))
-//       },
-//       app
-//     );
-//     break;
-//   case false:
-//     server = http.createServer(app);
-//     break;
-//   case NODE_ENV !== 'development': // For heroku, we need to use the http protocol
-//     // See: https://stackoverflow.com/questions/25148507/https-ssl-on-heroku-node-express
-//     server = http.createServer(app);
-//     break;
-//   default:
-//     throw new Error('Invalid value for config.https.enabled');
-// }
-
-server = http.createServer(app);
+switch (config.https.enabled) {
+  case true && config.env === 'development':
+    server = https.createServer(
+      {
+        key: fs.readFileSync(path.join(__dirname, '../key.pem')),
+        cert: fs.readFileSync(path.join(__dirname, '../cert.pem'))
+      },
+      app
+    );
+    break;
+  case false:
+    server = http.createServer(app);
+    break;
+  case true && config.env === 'production': // For heroku, we need to use the http protocol
+    // See: https://stackoverflow.com/questions/25148507/https-ssl-on-heroku-node-express
+    server = http.createServer(app);
+    break;
+  default:
+    throw new Error('Invalid value for config.https.enabled');
+}
 
 if (config.port == null || config.port === '') {
   port = 8861;
 }
 
-server.on('clientError', (err, socket) => {
-  console.error(err);
-  socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
-});
+// server.on('clientError', (err, socket) => {
+//   console.error(err);
+//   socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
+// });
 
 server.listen(config.server.port);
 // End of https configuration
