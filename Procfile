@@ -1,2 +1,2 @@
-web: yarn start server:client
+web: yarn server:client
 worker: yarn prod-server:build
