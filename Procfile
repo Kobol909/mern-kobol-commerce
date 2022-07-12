@@ -1,1 +1,1 @@
-web: yarn prod-server:client
+web: yarn prod-server:build
