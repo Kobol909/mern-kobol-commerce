@@ -27,7 +27,7 @@ router.get('/', productsCtr.getProducts);
 // @access Public
 router.post('/', productsCtr.createProduct);
 
-// * Will be deleted before the application goes live * Only for convenience in development. TODO:
+// * TODO: delete before the application goes live
 // @route   DELETE api/products /
 // @desc    Delete all products
 // @access  Public

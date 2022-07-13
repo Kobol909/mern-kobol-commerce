@@ -16,9 +16,7 @@ dotenv.config({ path: fspath.resolve(__dirname, '../../.env') });
  * Joi schema for validating environment variables
  */
 const envVarsSchema = Joi.object({
-  ENV_DEV: Joi.boolean(),
-  ENV_PROD: Joi.boolean(),
-  ENV_TEST: Joi.boolean(),
+  NODE_ENV: Joi.string(),
 
   ERROR_MESSAGE_CURRENT_PASSWORD: Joi.string(),
   ERROR_MESSAGE_EMAIL: Joi.string(),
@@ -45,7 +43,7 @@ const envVarsSchema = Joi.object({
 
   ROLE_ADMIN: Joi.string(),
   ROLE_ROOT: Joi.string(),
-  ROLE_SELLER: Joi.string(),
+  ROLE_SELLER: Joi.string(), // TODO
   ROLE_USER: Joi.string(),
 
   SESSION_SECRET: Joi.string(),
@@ -86,25 +84,25 @@ let envConfig = {
   },
   oauth: {
     google: {
+      authorizationURL: value.GOOGLE_AUTHORIZATION_URL,
+      callbackURL: value.GOOGLE_CALLBACK_URL,
       clientID: value.GOOGLE_CLIENT_ID,
       clientSecret: value.GOOGLE_CLIENT_SECRET,
-      callbackURL: value.GOOGLE_CALLBACK_URL,
-      authorizationURL: value.GOOGLE_AUTHORIZATION_URL,
-      tokenURL: value.GOOGLE_TOKEN_URL,
-      scope: value.GOOGLE_SCOPE,
       pkce: value.GOOGLE_PKCE,
-      state: value.GOOGLE_STATE
+      scope: value.GOOGLE_SCOPE,
+      state: value.GOOGLE_STATE,
+      tokenURL: value.GOOGLE_TOKEN_URL
     }
   }
 };
 
 let config = {};
 
-if (envConfig.env === constants.ENV_DEV) {
+if (envConfig.env === 'development') {
   config = require('./config.dev');
-} else if (envConfig.env === constants.ENV_PROD) {
+} else if (envConfig.env === 'production') {
   config = require('./config.prod');
-} else if (envConfig.env === constants.ENV_TEST) {
+} else if (envConfig.env === 'test') {
   config = require('./config.test');
 }
 

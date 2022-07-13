@@ -13,13 +13,15 @@ node_modules
 
 # misc
 .DS_Store
-.env
-.env.local
-.env.development
-.env.test
-.env.production
 
-# certs
+# env vars
+.env
+.env.development
+.env.local
+.env.production
+.env.test
+
+# ssl certs
 *.pem
 
 # firebase
