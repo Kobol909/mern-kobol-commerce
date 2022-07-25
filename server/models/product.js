@@ -1,74 +1,63 @@
-/*
- * Define the schema for the product model
- * ========================================
- *
- */
-
 const mongoose = require('mongoose');
-const Joi = require('joi');
 const _ = require('lodash');
-
-const config = require('../config');
-const constants = require('../core/constants');
 
 const attribute = require('./attribute');
 const category = require('./category');
 const tag = require('./tag');
 const review = require('./review');
 
-// Define Schema
 const productSchema = new mongoose.Schema(
   {
     name: {
       type: String,
       required: true,
-      required: 'Name is required',
+      required: 'Name is required'
     },
     description: {
       type: String,
       required: true,
-      required: 'Description is required',
+      required: 'Description is required'
     },
     attributes: {
       type: [String],
-      attribute,
+      attribute
     },
     categories: {
       type: [String],
-      category,
+      category
     },
     tags: {
       type: [String],
-      tag,
+      tag
     },
     images: {
-      type: [String],
+      type: [String]
     },
     thumbnail: {
-      type: [String],
+      type: [String]
     },
     price: {
       type: Number,
       required: true,
-      required: 'Price is required',
+      required: 'Price is required'
     },
     reviews: {
       type: [String],
-      review,
+      review
     },
     seller: {
       type: String,
       ref: 'role',
-      required: true,
+      required: true
     },
     inventoryQuantity: {
-      type: Number,
+      type: Number
     },
     sku: {
       type: String,
       required: true,
-      required: 'SKU is required',
-    },
+      required: 'SKU is required'
+    }
   },
   { timestamps: true }
 );
@@ -90,7 +79,7 @@ productSchema.methods.toJsonFor = function (product) {
     reviews,
     seller,
     inventoryQuantity,
-    sku,
+    sku
   } = this;
   const productObj = this.toObject();
   if (id === this.id) {
@@ -111,7 +100,7 @@ productSchema.methods.toJsonFor = function (product) {
       reviews: reviews,
       seller: seller,
       inventoryQuantity: inventoryQuantity,
-      sku: sku,
+      sku: sku
     };
   } else {
     // error message

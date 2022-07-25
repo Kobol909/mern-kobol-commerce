@@ -1,0 +1,23 @@
+# This is a basic workflow for setting up new GitHub actions.
+
+name: MERN Kobol commerce CI
+
+# Controls when the action will run.
+on:
+  # Runs the action when a Push or Pull Request is created on our main branch.
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# The action itself.
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - run: yarn install
+      - run: yarn build

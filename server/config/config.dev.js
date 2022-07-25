@@ -11,29 +11,47 @@ require('dotenv').config();
 
 /**
  * Configuration for development environment
+ *
  */
 let devConfig = {
   app: {
-    name: 'mern-kobol-commerce', // Application name
-    title: 'mern-kobol-commerce' // Application title
+    // Application name (should be URL friendly)
+    name: 'mern-kobol-commerce',
+    // Application title (should be human friendly)
+    title: 'MERN Kobol eCommerce'
   },
   auth: {
+    // If true, enable OAuth2 sign in via Google (Google sign in)
     googleSignIn: true,
-    resetPassword: false, // If true, be able to reset password via email
-    verifyEmail: false // If true, require email verification when signing up
+    // If true, activate reset password via email
+    resetPassword: false,
+    // If true, require email verification when signing up
+    verifyEmail: false
   },
   etag: {
     enabled: false
+    // See https://www.npmjs.com/package/etag
   },
   morgan: {
-    format: constants.MORGAN_FORMAT_DEV // TODO possible values: combined, common, dev, short, tiny
+    enabled: true,
+    format: constants.MORGAN_FORMAT_DEV, // TODO: possible values: combined, common, dev, short, tiny
+    options: null
+    // See https://www.npmjs.com/package/morgan
   },
   seed: {
     logging: true,
+    attributes: [],
+    categories: [],
+    comments: [],
+    customers: [],
+    orders: [],
+    products: [],
+    reviews: [],
+    tags: [],
     users: [
       {
         username: 'root',
-        email: 'root@tdev.app',
+        email: 'root@kobol.app',
         password: 'password',
         firstName: 'Root',
         lastName: 'Account',
@@ -41,7 +59,7 @@ let devConfig = {
       },
       {
         username: 'admin',
-        email: 'admin@tdev.app',
+        email: 'admin@kobol.app',
         password: 'password',
         firstName: 'Admin',
         lastName: 'Account',
@@ -49,7 +67,7 @@ let devConfig = {
       },
       {
         username: 'user',
-        email: 'user@tdev.app',
+        email: 'user@kobol.app',
         password: 'password',
         firstName: 'User',
         lastName: 'Account',
@@ -59,8 +77,14 @@ let devConfig = {
   },
   session: {
     enabled: true,
-    secret: 'This will be overridden by environment variable SESSION_SECRET',
-    expiresIn: 60 * 60 * 24 * 7 // in seconds
+    options: {
+      secret: 'This will be overridden by environment variable SESSION_SECRET ',
+      resave: false,
+      saveUninitialized: true,
+      cookie: {}
+    },
+    maxAge: 60 * 60 * 24 * 7 // in seconds
+    // See https://www.npmjs.com/package/express-session
   }
 };
 

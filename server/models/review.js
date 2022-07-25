@@ -6,25 +6,25 @@ const reviewSchema = new mongoose.Schema({
     required: true,
     trim: true,
     minlength: 1,
-    maxlength: 40,
+    maxlength: 40
   },
   content: {
     type: [String],
     trim: true,
     minlength: 1,
-    maxlength: 240,
+    maxlength: 240
   },
   value: {
     type: Number,
     required: true,
     min: 1,
-    max: 5,
+    max: 5
   },
   product: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'product',
-    required: true,
-  },
+    required: true
+  }
 });
 
 mongoose.model('review', reviewSchema);

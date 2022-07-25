@@ -8,7 +8,8 @@ const defaultConfig = require('./config.default');
 const constants = require('../core/constants');
 
 /**
- * Configuration for development environment
+ * Configuration for test environment
+ *
  */
 let testConfig = {
   auth: {
@@ -24,15 +25,24 @@ let testConfig = {
     testUri: `mongodb://localhost:27017/${defaultConfig.app.name}_test`
   },
   oauth: {},
+  openId: {},
   rateLimit: {
     enabled: false
   },
   seed: {
     logging: false,
+    attributes: [],
+    categories: [],
+    comments: [],
+    customers: [],
+    orders: [],
+    products: [],
+    reviews: [],
+    tags: [],
     users: [
       {
         username: 'root',
-        email: 'root@tdev.app',
+        email: 'root@kobol.app',
         password: 'password',
         firstName: 'Root',
         lastName: 'Account',
@@ -49,7 +59,7 @@ let testConfig = {
       },
       {
         username: 'anotherroot',
-        email: 'another-root@tdev.app',
+        email: 'another-root@kobol.app',
         password: 'password',
         firstName: 'AnotherRoot',
         lastName: 'Account',
@@ -66,7 +76,7 @@ let testConfig = {
       },
       {
         username: 'admin',
-        email: 'admin@tdev.app',
+        email: 'admin@kobol.app',
         password: 'password',
         firstName: 'Admin',
         lastName: 'Account',
@@ -83,7 +93,7 @@ let testConfig = {
       },
       {
         username: 'anotheradmin',
-        email: 'another-admin@tdev.app',
+        email: 'another-admin@kobol.app',
         password: 'password',
         firstName: 'AnotherAdmin',
         lastName: 'Account',
@@ -100,7 +110,7 @@ let testConfig = {
       },
       {
         username: 'specialuser',
-        email: 'special-user@tdev.app',
+        email: 'special-user@kobol.app',
         password: 'password',
         firstName: 'SpecialUser',
         lastName: 'Account',
@@ -121,7 +131,7 @@ let testConfig = {
       },
       {
         username: 'anotherspecialuser',
-        email: 'another-special-user@tdev.app',
+        email: 'another-special-user@kobol.app',
         password: 'password',
         firstName: 'AnotherSpecialUser',
         lastName: 'Account',
@@ -159,7 +169,7 @@ let testConfig = {
       },
       {
         username: 'anotheruser',
-        email: 'another-user@tdev.app',
+        email: 'another-user@kobol.app',
         password: 'password',
         firstName: 'AnotherUser',
         lastName: 'Account',

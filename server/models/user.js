@@ -1,8 +1,3 @@
-/*
- * Define the schema for the user model
- * ========================================
- *
- */
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');

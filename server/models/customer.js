@@ -1,8 +1,3 @@
-/*
- * Define the schema for the customer model
- * ========================================
- *
- */
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
@@ -15,11 +10,11 @@ const constants = require('../core/constants');
 const customerSchema = new mongoose.Schema({
   // Unique identifier for the object
   id: {
-    type: String,
+    type: String
   },
   // String representing the object’s type. Objects of the same type share the same value.
   object: {
-    type: String,
+    type: String
   },
   // The customer’s address.
   /**
@@ -38,7 +33,7 @@ const customerSchema = new mongoose.Schema({
    *  State, county, province, or region.
    */
   address: {
-    type: String,
+    type: String
   },
   /**
    * Current balance, if any, being stored on the customer.
@@ -48,20 +43,20 @@ const customerSchema = new mongoose.Schema({
    * This balance is only taken into account as invoices are finalized.
    */
   balance: {
-    type: String,
+    type: String
   },
   // Time at which the object was created. Measured in seconds since the Unix epoch.
   created: {
-    type: String,
+    type: String
   },
   // Three-letter ISO code for the currency the customer can be charged in for recurring billing purposes.
   currency: {
-    type: String,
+    type: String
   },
   // ID of the default payment source for the customer.
   // If you are using payment methods created via the PaymentMethods API, see the invoice_settings.default_payment_method field instead.
   default_source: {
-    type: String,
+    type: String
   },
   /**
    * When the customer’s latest invoice is billed by charging automatically, delinquent is true if the invoice’s latest charge failed.
@@ -69,23 +64,23 @@ const customerSchema = new mongoose.Schema({
    * If an invoice is marked uncollectible by dunning, delinquent doesn’t get reset to false.
    */
   delinquent: {
-    type: String,
+    type: String
   },
   // An arbitrary string attached to the object. Often useful for displaying to users.
   description: {
-    type: String,
+    type: String
   },
   // Describes the current discount active on the customer, if there is one.
   discount: {
-    type: String,
+    type: String
   },
   // The customer’s email address.
   email: {
-    type: String,
+    type: String
   },
   // The prefix for the customer used to generate unique invoice numbers.
   invoice_prefix: {
-    type: String,
+    type: String
   },
   /**
    * The customer’s default invoice settings.
@@ -103,33 +98,33 @@ const customerSchema = new mongoose.Schema({
    */
   invoice_settings: {
     custom_fields: {
-      type: String,
+      type: String
     },
     default_payment_method: {
-      type: String,
+      type: String
     },
     footer: {
-      type: String,
-    },
+      type: String
+    }
   },
   // Has the value true if the object exists in live mode or the value false if the object exists in test mode.
   livemode: {
-    type: String,
+    type: String
   },
   // Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format.
   metadata: {
-    type: String,
+    type: String
   },
   // The customer’s full name or business name.
   name: {
-    type: String,
+    type: String
   },
   // The customer’s phone number.
   phone: {
-    type: String,
+    type: String
   },
   preferred_locales: {
-    type: String,
+    type: String
   },
   /**
    * Mailing and shipping address for the customer. Appears on invoices emailed to this customer.
@@ -154,17 +149,17 @@ const customerSchema = new mongoose.Schema({
    *  Customer phone (including extension).
    */
   shipping: {
-    type: String,
+    type: String
   },
   // Describes the customer’s tax exemption status. One of none, exempt, or reverse.
   // When set to reverse, invoice and receipt PDFs include the text “Reverse charge”.
   tax_exempt: {
-    type: String,
+    type: String
   },
   // ID of the test clock this customer belongs to.
   test_clock: {
-    type: String,
-  },
+    type: String
+  }
 });
 
 mongoose.model('Customer', customerSchema);

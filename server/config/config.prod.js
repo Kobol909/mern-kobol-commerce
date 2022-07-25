@@ -13,46 +13,64 @@ const constants = require('../core/constants');
  */
 let prodConfig = {
   app: {
-    name: 'mern-kobol-commerce', // TODO Lowercase, URL compatible name
-    title: 'mern-kobol-commerce' // TODO Human friendly name
+    // Application name (should be URL friendly)
+    name: 'mern-kobol-commerce',
+    // Application title (should be human friendly)
+    title: 'MERN Kobol eCommerce'
   },
   auth: {
+    // If true, enable OAuth2 sign in via Google (Google sign in)
     googleSignIn: true,
+    // If true, activate OAuth2 sign in via Passport
     oauth2SignIn: false,
-    resetPassword: true, // If true, be able to reset password via email
-    verifyEmail: true // If true, require email verification when signing up
+    // If true, activate reset password via email
+    resetPassword: true,
+    // If true, require email verification when signing up
+    verifyEmail: true
   },
   cors: {
     enabled: false
   },
   email: {
-    from: 'no-reply@kobol-sounds.app', // TODO
+    from: 'no-reply@kobol-sounds.app', // TODO: Change to real email address
     to: '',
-    signature: 'Kobol' // TODO
+    signature: 'Kobol' // TODO: Change to real signature
   },
   jwt: {
+    // Algorithm used to sign the token
     algorithm: 'HS512',
-    expiresIn: 60 * 24 * 60 * 60 // seconds
+    expiresIn: 60 * 24 * 60 * 60 // in seconds
   },
   morgan: {
     enabled: true,
-    format: constants.MORGAN_FORMAT_COMBINED // TODO - possible values: combined, common, dev, short, tiny
+    format: constants.MORGAN_FORMAT_COMBINED, // TODO - possible values: combined, common, dev, short, tiny
+    options: null
+    // See https://www.npmjs.com/package/morgan
   },
   paths: {
+    // Path to the public directory
     root: fspath.normalize(`${__dirname}/..`)
   },
   https: {},
-  oauth2: {},
+  oauth: {},
   openId: {},
   rateLimit: {
     enabled: true
   },
   seed: {
     logging: true,
+    attributes: [],
+    categories: [],
+    comments: [],
+    customers: [],
+    orders: [],
+    products: [],
+    reviews: [],
+    tags: [],
     users: [
       {
         username: 'root',
-        email: 'root@tdev.app',
+        email: 'root@kobol.app',
         password: 'w-$nJee?4R#NsuAz',
         firstName: 'Root',
         lastName: 'Account',
@@ -60,7 +78,7 @@ let prodConfig = {
       },
       {
         username: 'admin',
-        email: 'admin@tdev.app',
+        email: 'admin@kobol.app',
         password: 'bqf]7gk%YY#?GA5-',
         firstName: 'Admin',
         lastName: 'Account',
@@ -70,8 +88,8 @@ let prodConfig = {
   },
   trustProxy: {
     enabled: true,
-    // see https://expressjs.com/en/guide/behind-proxies.html
     value: 1
+    // see https://expressjs.com/en/guide/behind-proxies.html
   }
 };
 

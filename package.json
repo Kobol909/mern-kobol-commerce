@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "author": "Fabien Campana",
+  "license": "ISC",
   "scripts": {
     "postinstall": "node start install-children",
     "start": "node start server:client",
@@ -15,8 +17,6 @@
     "prod-server:serve": "node start prod-server:serve",
     "test": "node start test"
   },
-  "author": "Fabien Campana",
-  "license": "ISC",
   "dependencies": {
     "concurrently": "^7.2.2",
     "dotenv": "^16.0.1",

@@ -3,17 +3,17 @@ const mongoose = require('mongoose');
 const attributeSchema = new mongoose.Schema({
   name: {
     type: [String],
-    required: true,
+    required: true
   },
   value: {
     type: [String],
-    required: true,
+    required: true
   },
   product: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'product',
-    required: true,
-  },
+    required: true
+  }
 });
 
 mongoose.model('attribute', attributeSchema);
