@@ -1,4 +1,4 @@
-NODE_ENV === 'development' ? import('redux-logger') : null;
+// NODE_ENV === 'development' ? import('redux-logger') : null;
 import { legacy_createStore as createStore } from 'redux';
 import { compose, applyMiddleware } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
