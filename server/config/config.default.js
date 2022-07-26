@@ -144,7 +144,7 @@ let defaultConfig = {
   },
   sendgrid: {
     // TODO: Replace with Mailgun or another email service
-    apiKey: 'This will be overridden by environment variable SENDGRID_API_KEY'
+    apiKey: 'SG_SENDGRID_API_KEY'
   },
   server: {
     host: 'This will be overridden by environment variable SERVER_HOST',

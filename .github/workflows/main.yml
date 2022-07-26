@@ -1,16 +1,11 @@
-# This is a basic workflow for setting up new GitHub actions.
+name: build CI
 
-name: MERN Kobol commerce CI
-
-# Controls when the action will run.
 on:
-  # Runs the action when a Push or Pull Request is created on our main branch.
   push:
     branches: [main]
   pull_request:
     branches: [main]
 
-# The action itself.
 jobs:
   build:
     runs-on: ubuntu-latest
