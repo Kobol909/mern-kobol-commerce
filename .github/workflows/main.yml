@@ -32,8 +32,3 @@ jobs:
       - run: yarn install
 
       - run: yarn build
-
-      # - run: yarn test
-      #   env:
-      #     CI: true
-      #     MONGO_URL: mongodb://localhost:27017/mern-kobol-commerce
