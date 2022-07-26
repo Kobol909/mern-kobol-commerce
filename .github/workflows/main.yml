@@ -10,8 +10,8 @@ jobs:
       CI: true
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
-        mongodb-version: [4.x, 5.x, 6.x]
+        node-version: [16.x, 18.x]
+        mongodb-version: [5.x, 6.x]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
