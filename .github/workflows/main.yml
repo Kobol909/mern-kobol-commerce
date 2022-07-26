@@ -1,20 +1,16 @@
-name: build CI
+name: CI pipeline
 
 on:
   push:
-    branches: [main]
-  pull_request:
     branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [14.x, 16.x, 18.x]
         mongodb-version: [4.x, 5.x, 6.x]
-
     steps:
       - name: Git checkout
       - uses: actions/checkout@v2
@@ -30,5 +26,4 @@ jobs:
           mongodb-version: ${{ matrix.mongodb-version }}
 
       - run: yarn install
-
       - run: yarn build
