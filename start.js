@@ -1,27 +1,10 @@
-/**
- * This script run yarn processes concurrently
- *
- * Usage: [test|server|client|server:client|build|serve|install-children|prod]
- *
- * Example:
- * * node install-children
- * * node start test
- * * node start server
- * * node start client
- * * node start server:client
- * * node start install-children
- * * node build client
- * * node serve client
- * * node build client && node prod server
- */
-
 const concurrently = require('concurrently');
 const chalk = require('chalk');
-// const figlet = require('figlet');
 const _ = require('lodash');
 
 const getUppercaseArgs = () => {
   validArgs = [
+    // TODO: Add 'dev' to the list of valid args
     'test',
     'server',
     'client',
@@ -49,12 +32,6 @@ const getUppercaseArgs = () => {
 };
 
 const run = () => {
-  // TODO: Make this print conditional to the NODE_ENV
-  // const logo = figlet.textSync('Kobol', {
-  //   font: '3D-ASCII'
-  // });
-  // console.log(chalk.cyan(logo));
-
   const upperCaseArgs = getUppercaseArgs();
   let availableCommands = [
     {

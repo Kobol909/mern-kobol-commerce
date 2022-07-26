@@ -1,15 +1,7 @@
-/**
- * This script provide a cross-platform way for starting yarn process in child directory.
- *
- * Usage: node start-helper.js [test|server|client|server:client|build|serve|install-children|prod]
- *
- */
-
 const { spawnSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 const ngrok = require('ngrok');
-// const figlet = require('figlet');
 const dotenv = require('dotenv');
 const chalk = require('chalk');
 const kill = require('tree-kill');
@@ -170,7 +162,6 @@ const updateMobileDotEnvFileSync = (ngrokUrl) => {
 };
 
 const printExpiredUrlMessage = (ngrokUrl) => {
-  // const artText = figlet.textSync('Ngrok URL expired', { font: 'Big' });
   console.log(chalk.red(`\n\n${artText}`));
   console.log(chalk.red(`\n[-] The ngrok URL "${ngrokUrl}" is expired`));
   console.log(chalk.red(`[-] The mobile server is killed`));
