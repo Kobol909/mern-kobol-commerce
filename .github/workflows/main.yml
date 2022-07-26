@@ -8,24 +8,32 @@ on:
 
 jobs:
   build:
-    env:
-      CI: true
-      NODE_ENV: development
-      MONGO_URL: mongodb://localhost:27017/mern-kobol-commerce
+    runs-on: ubuntu-latest
+
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
-        mongodb-version: [4.x]
-    runs-on: ubuntu-latest
+        node-version: [14.x, 16.x, 18.x]
+        mongodb-version: [4.x, 5.x, 6.x]
+
     steps:
+      - name: Git checkout
       - uses: actions/checkout@v2
+
       - name: Use Node.js version
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+
       - name: Use MongoDB
-        uses: supercharge/mongodb-github-actions@1.7.0
+        uses: supercharge/mongodb-github-action@1.7.0
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
+
       - run: yarn install
+
       - run: yarn build
+
+      # - run: yarn test
+      #   env:
+      #     CI: true
+      #     MONGO_URL: mongodb://localhost:27017/mern-kobol-commerce
