@@ -4,16 +4,16 @@ const _ = require('lodash');
 
 const getUppercaseArgs = () => {
   validArgs = [
-    // TODO: Add 'dev' to the list of valid args
-    'test',
-    'server',
-    'client',
-    'server:client',
-    'install-children',
     'build',
-    'serve',
+    'client',
+    'dev',
+    'install-children',
     'prod-server',
-    'prod-server:serve'
+    'prod-server:serve',
+    'serve',
+    'server',
+    'server:client',
+    'test'
   ];
 
   if (process.argv.length === 2) {
@@ -37,6 +37,11 @@ const run = () => {
     {
       command: 'node start-helper install-children',
       name: 'INSTALL-CHILDREN',
+      prefixColor: 'gray'
+    },
+    {
+      command: 'node start-helper dev',
+      name: 'DEV',
       prefixColor: 'gray'
     },
     {

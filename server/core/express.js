@@ -1,8 +1,3 @@
-/**
- *  Express server setup
- *  ====================
- *
- */
 const path = require('path');
 const express = require('express');
 const compression = require('compression');
@@ -12,7 +7,9 @@ const cors = require('cors');
 const morgan = require('morgan');
 const createError = require('http-errors');
 const session =
-  process.NODE_ENV === 'development' ? require('express-session') : require('cookie-session'); // TODO: Check if encrypting the cookie on the server is a good practice or if I should stick with cookie-session for production ?
+  process.NODE_ENV === 'development' ? require('express-session') : require('cookie-session');
+// TODO: Check if encrypting the cookie on the server is a good practice or if I should stick with cookie - session for production ?
+
 const routes = require('../routes');
 const passport = require('./passport/passportStrategies');
 const config = require('../config/index');
@@ -77,11 +74,10 @@ process.env.NODE_ENV === 'development'
   ? app.use('/public', express.static(path.resolve(__dirname, './public')))
   : app.use('/public', express.static(path.resolve(__dirname, '../../client/build')));
 
-// Redirect all requests to the index.html file
 // app.use(express.static(path.join(__dirname, 'build')));
-// app.get('/*', function (req, res) {
-//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
-// });
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+});
 
 // catch 404 errors and forward to error handler by default
 app.use((req, res, next) => {

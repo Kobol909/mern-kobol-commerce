@@ -72,6 +72,13 @@ const options = [
     arguments: ['prod'],
     workingDirs: ['server'],
     message: 'Starting production server...'
+  },
+  {
+    name: 'dev', // Opt [9]
+    command: 'yarn',
+    arguments: ['dev'],
+    workingDirs: ['server', 'client'],
+    message: 'Starting development server...'
   }
 ];
 

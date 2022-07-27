@@ -1,4 +1,3 @@
-// NODE_ENV === 'development' ? import('redux-logger') : null; // TODO: Fix the conditional import
 import { legacy_createStore as createStore } from 'redux';
 import { compose, applyMiddleware } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
@@ -18,19 +17,13 @@ const sagaMiddleware = createSagaMiddleware();
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-const middleWares = [
-  process.env.NODE_ENV !== 'production',
-  // && logger
-  sagaMiddleware
-].filter(Boolean);
-
 const composeEnhancer =
   (process.env.NODE_ENV !== 'production' &&
     window &&
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
   compose;
 
-const composedEnhancers = composeEnhancer(applyMiddleware(...middleWares));
+const composedEnhancers = composeEnhancer(applyMiddleware(sagaMiddleware));
 
 export const store = createStore(persistedReducer, undefined, composedEnhancers);
 
